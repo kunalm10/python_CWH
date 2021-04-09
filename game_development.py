@@ -1,14 +1,14 @@
 # Snake Water Gun Game
 import random
 
-abbrebration_dictionary  = {'S': 'Snake',
+abbreviation_dictionary  = {'S': 'Snake',
                             'W': 'Water',
                             'G': 'Gun'}
 computer_choice = ['Snake', 'Water', 'Gun']
 
 score_card = {'Human': 0, 'Computer': 0}
 
-def macth_winner_decider(player_1, player_2):
+def match_winner_decider(player_1, player_2):
     print(player_1, player_2)
     if player_1 == 'Snake' and player_2 == 'Water':
         score_card['Human'] += 1
@@ -43,9 +43,12 @@ def tournament_winner_decider(score_card):
 
 match_played = 0
 while match_played < 3:
-    match_played += 1
     human_choice = (input('Choose one of the following: S-Snake, W-Water, G-Gun\n')).capitalize()
-    human_choice = abbrebration_dictionary.get(human_choice)
-    print(f'{macth_winner_decider(human_choice, random.choice(computer_choice))} \n')
-    print(f'{score_card}\n')
+    human_choice = abbreviation_dictionary.get(human_choice)
+    if human_choice != None:
+        match_played += 1
+        print(f'{match_winner_decider(human_choice, random.choice(computer_choice))} \n')
+        print(f'{score_card}\n')
+    else:
+        print('Choose a relevant letter')
 tournament_winner_decider(score_card)
