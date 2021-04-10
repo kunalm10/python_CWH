@@ -43,6 +43,10 @@ def tournament_winner_decider(score_card):
 
 match_played = 0
 while match_played < 3:
+    print('This is a Snake, Water, Gun game. '
+          'Snake wins from water',
+          'Water wins from Gun',
+          'Gun wins from Snake')
     human_choice = (input('Choose one of the following: S-Snake, W-Water, G-Gun\n')).capitalize()
     human_choice = abbreviation_dictionary.get(human_choice)
     if human_choice != None:
